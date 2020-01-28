@@ -19,21 +19,19 @@ public class MyWebScoketHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         super.afterConnectionEstablished(session);
         System.out.println("客户端连接成功");
-    }
 
+
+
+    }
 
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         super.handleTextMessage(session, message);
-        System.out.println("收到消息客户端消息 ： "+ message.getPayload());
+        System.out.println("收到消息客户端消息 ： " + message.getPayload());
         session.sendMessage(new TextMessage(message.getPayload()));
     }
 
-    @Override
-    protected void handlePongMessage(WebSocketSession session, PongMessage message) throws Exception {
-        super.handlePongMessage(session, message);
-    }
 
     @Override
     public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
